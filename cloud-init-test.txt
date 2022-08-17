@@ -1,0 +1,14 @@
+#cloud-config
+write_files:
+  - owner:{{ds.meta_data.imds.compute.osProfile.adminUsername}}:{{ds.meta_data.imds.compute.osProfile.adminUsername}}
+    path: /tmp/test.sh
+    content: |
+      #!/bin/bash
+      
+      echo $(hostname -f) > /tmp/test.txt
+      echo {{ds.meta_data.imds.compute.osProfile.adminUsername}} >> /tmp/test.txt
+runcmd:
+  - chmod u+x /tmp/test.sh
+  - /tmp/test.sh
+
+    
