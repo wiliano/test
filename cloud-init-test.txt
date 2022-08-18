@@ -1,6 +1,6 @@
 #cloud-config
 write_files:
-  - owner: compendium:compendium
+  - owner: 'compendium:compendium'
     path: /tmp/test.sh
     content: |
       #!/bin/bash
